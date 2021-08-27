@@ -131,23 +131,23 @@ Typing `python` *(or `python3`)* into the terminal will enter the Python console
 What is a benefit of using Markdown?
 https://www.markdownguide.org/getting-started/
 
- - Answer:
+ - Answer: Markdown is a formating tool that is portable and simple and allows you to use it on multiple platforms. 
 
 What does "cd" stand for?
 
- - Answer:
+ - Answer: Change directory. 
 
 Did you get stuck at any point or become confused with your console? (yes/no) If so, what happened? How did you solve it?
 
- - Answer:
+ - Answer: Yes because sometimes my computer would lag and python wouldn't run leaving me confused and wondering if I did something wrong. I also couldn't figure out how to print for awhile because it wouldn't let me. 
 
 Did you consider searching google for other commands to run? What did you try? 
 
- - Answer:
+ - Answer: I did actually. I found a command called raw_input but when I tried to use it, it did not work. 
 
 What would you like to program? 
 
- - Answer:
+ - Answer: Aimbot mods for single player games. 
 
 Type down any class notes below this sentence:
 
