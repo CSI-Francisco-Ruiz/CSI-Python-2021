@@ -96,24 +96,25 @@ print(type(age))
 
 What is the difference between "42" and 42.
 
- - Answer:
+ - Answer: One is an integer and the other is a spring. 
 
 Define the boolean operators: >, <, ==, >=, <=
 
- - Answer:
+ - Answer: Greater than, less than, equal to, greater equal than, less equal than.
 
 How do you address an index in an list? Write a python code that assigns 34 to a new variable by accessing the value stored in:  
         arr = [4, 3, -1, 4, 34]
 
- - Answer:
+ - Answer: arr = [4,3, -1, 4, 34]
+ arr [4]
 
 What is the first index of a list? Why?
 
- - Answer:
+ - Answer: 0. This is because in binary we count from 0 at the start. 
 
 Provide an original example of a null value. It must prove your understanding of the concept.
 
- - Answer:
+ - Answer: None. A null has no value.
 
 Type down any class notes below this sentence:
 
