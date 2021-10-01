@@ -46,9 +46,10 @@ foo = ['firstValue', 'secondValue', 'anotherValue']
 computerChoice = random.choice(foo)
 print(f"Computer selected: {computerChoice}")
 
+
 # Add logic below this line
 ```
-  
+
 <br>
 
 
@@ -71,10 +72,12 @@ print(f"Computer selected: {computerChoice}")
 Give a python example for each logic operator in the module image.
 
  - Answers:
-   - OR:
-   - AND: 
-   - NOT: 
-
+   - OR: if(Time == "1" and Place == "0")
+            print("True")
+   - AND: if(Time == "1" and Place == "1")
+            print("True")
+   - NOT: if(Time == "1" and Place == "1")
+            print("False")
 
 Type down any class notes below this sentence:
 
