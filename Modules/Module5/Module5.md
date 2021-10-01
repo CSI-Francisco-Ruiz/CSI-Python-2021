@@ -72,12 +72,21 @@ print(f"Computer selected: {computerChoice}")
 Give a python example for each logic operator in the module image.
 
  - Answers:
-   - OR: if(Time == "1" and Place == "0")
-            print("True")
-   - AND: if(Time == "1" and Place == "1")
-            print("True")
-   - NOT: if(Time == "1" and Place == "1")
-            print("False")
+   - OR:    x = 30
+            if( x <= 25 or x => 1 ):
+                    0          1
+                          1
+   - AND:   x = 52
+            if( x <= 60 and x => 1 ):
+                    1          1
+                         1    
+   - NOT:   x = 70
+            if( x <= 50 not and x => 80 ):
+                  0                  0
+                            1
+
+            
+
 
 Type down any class notes below this sentence:
 
