@@ -5,7 +5,6 @@ computerChoice = random.choice(foo)
 userChoice = input("select Rock, Paper or Scissors ")
 print(computerChoice)
 
-
 if(userChoice == "Rock" and computerChoice == "Paper"):
     print("You lose")
 elif(userChoice == "Rock" and computerChoice == "Scissors"):
