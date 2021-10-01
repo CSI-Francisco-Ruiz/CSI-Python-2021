@@ -9,6 +9,6 @@ else:
 
 import random
 
-foo = ['firstValue', 'secondValue', 'anotherValue']
+foo = ['firstValue', 'secondValue', 'thirdValue']
 computerChoice = random.choice(foo)
 print(computerChoice)
