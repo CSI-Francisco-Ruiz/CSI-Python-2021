@@ -17,6 +17,18 @@
 ## [How to define an object](https://www.geeksforgeeks.org/convert-class-object-to-json-in-python/).
 * ### [What is an object constructor](https://www.geeksforgeeks.org/constructors-in-python)
   * An object constructor is like a function. It's function is included by default in all classes. it is used by writing a function called `__init__`.You define how many parameters it includes. You also define what variables are stored into your object by assigning them to `self`.
+
+```python
+
+class Student:
+  def __init__(self,  id:str, name:str):
+    self.id = id
+    self.name = name
+
+s = Student("14-146", "Carlos Cobian")
+
+```
+
 <br>
 
 
@@ -25,7 +37,33 @@
 * ### Store it within your Module6 directory.
 * ### Commit and push the file before next class.
 
-<br>
+### Serialization of an object into a file
+This file will be placed in the same directory as the script being executed.
+See the below example. It will not run until our class labeled `ObjectDataType` is defined.
+
+```python
+# List of Students
+students = [
+  Student("14-146", "Carlos Cobian"),
+  Student("98-007", "Jose Quintana")
+]
+
+# Determine output Directory
+myOutputPath = Path(__file__).parents[0]
+myOutputFilePath = os.path.join(myOutputPath, 'students.json')
+
+# Serialization
+with open(myOutputFilePath, 'w') as outfile:
+  # For a single student seen above use: json.dump(s.__dict__, outfile)
+  # For loop will include all students in list.
+  json.dump([data.__dict__ for data in myDataSet], outfile)
+
+```
+
+### Deserializing using a class
+```python
+file = open('ExperimentData.json',)
+experimentJson = json.load(file)
 
 
 
