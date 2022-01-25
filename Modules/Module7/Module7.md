@@ -1,8 +1,8 @@
 <div style="text-align:center">
         <img    src="https://beginnersbook.com/wp-content/uploads/2017/09/for_loop_C.jpg"
                 title="Python" 
-                width="70%" 
-                height="70%" />
+                width="40%" 
+                height="40%" />
 </div>
 <br>
 
@@ -62,6 +62,37 @@ while n > 0:
 print('Loop ended.')
 ```
 
+<br>
+
+## Iterating over a JSON Object
+To parse a list of students into a JSON file and then load them see the example below.
+```python
+# List of Students
+students = [
+  Student("14-146", "Carlos Cobian"),
+  Student("98-007", "Jose Quintana")
+]
+
+# Determine output Directory
+myOutputPath = Path(__file__).parents[0]
+myOutputFilePath = os.path.join(myOutputPath, 'students.json')
+
+# Serialization
+with open(myOutputFilePath, 'w') as outfile:
+  # For loop will include all students in list.
+  json.dump([data.__dict__ for data in myDataSet], outfile)
+
+# Deserialization
+file = open('students.json',)
+studentsJson = json.load(file)
+
+# Iterate over loaded JSON list. Construct each object and add it to a Object list.
+myStudentsList = []
+for student in studentsJson:
+    myStudentsList.append(Student(**student))
+```
+
+<br>
 # Class Discussion
 ## Answer the questions on the Markdown file located within your <u>`Module7`</u> directory (Module7.md)`(15pts)`
 <!-- Welcome! These are your questions. -->
@@ -70,25 +101,23 @@ print('Loop ended.')
 
 What is an Iterator?
 
- - Answer: An Iterator is an object that contains a countable number of elements that can be iterated upon. 
+ - Answer:
 
 Why are iterators important im programming?
 
- - Answer: They are important because they serve as objects that allow you to traverse through all the elements 
+ - Answer:
 
 What is the purpose of a for-loop.
 
- - Answer: A "For" Loop is used to repeat a specific block of code a known number of times. 
+ - Answer:
 
 Describe how the modulus operand allows us to determine when a number is odd. Provide a mathematical example.
 
- - Answer: Instead of returning the result of the problem, the modulus operand returns the whole number remainder. 
+ - Answer: 
 
 How do you create an infinite loop in python?
 
  - Answer:
- while True:
-    print("Jeff Bezos")
 
 Type down any class notes below this sentence:
 
