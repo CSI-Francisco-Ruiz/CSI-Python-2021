@@ -1,7 +1,7 @@
 <div style="text-align:center">
         <img    src="https://sparkyway.com/wp-content/uploads/2017/05/1-ISR0kaBJfjxXoakSF1JiJg.jpeg"
-                width="60%" 
-                height="60%" />
+                width="20%" 
+                height="20%" />
                 
 </div>
 <br>
@@ -88,5 +88,5 @@ for r in requestData:
 ```
 
 # Store requests
-* Create a folder within your project folder named `requests`
+* Programatcally create a folder within your project folder named `requests`.
 * Store 10,000 requests into this folder. Use separate files for each record.
