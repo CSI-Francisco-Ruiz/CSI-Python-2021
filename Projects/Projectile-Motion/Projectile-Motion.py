@@ -60,3 +60,13 @@ newList = []
 
 for e in experimentJson:
     ExperimentData(**e).run()  
+
+Gunnames= "RPK-16"
+Guncartridges= "5.45x39mm,"
+Gunrounds= "5.45x39mm FMJ"
+v_ms= 884
+Building= "Burj Khalifa"
+h_m= 829.8
+
+time= (math.sqrt(2*experimentData.Buildingheight/experimentData.gravity))
+DeltaX = (math(experimentData.v_ms(experimentData.time)))
