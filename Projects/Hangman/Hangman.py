@@ -1,5 +1,4 @@
 import json, ssl
-import random
 import urllib.request
 from RandomCryptoCoin import RandomCryptoCoin
 
@@ -89,3 +88,13 @@ print("Type a letter of your choice, be wary, as a wrong letter will cost you")
 
 Incorrect_integers = ["0","1","2","3","4","5","6","7","8","9"]
 Incorrect_characters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+","`","~","[","{","]","}","\\","|",";",":",",","<",".",">","/","?"]
+
+def play(word):
+    while(True):
+        letter = input("Type a letter")
+
+        if letter in Incorrect_characters:
+            print("Error, you can't use special characters, only letters")
+        
+        if letter in Incorrect_integers:
+            print("Error, you can't use integers, only letters")
