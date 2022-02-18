@@ -85,25 +85,31 @@ Steps = ["""
         """
 ]
 
-print(Steps[0]) 
-print("Type a letter of your choice, be wary, as a wrong letter will cost you")
 
 Incorrect_integers = ["0","1","2","3","4","5","6","7","8","9"]
 Incorrect_characters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+","`","~","[","{","]","}","\\","|",";",":",",","<",".",">","/","?"]
 
 def getInput():
     while(True):
-        letter = input("Type a letter")
+        letter = input("Type a letter of your choice, be wary, as a wrong letter will cost you")
+
+        if (len(letter) !=1):
+            continue
 
         if letter in Incorrect_characters:
-            print("Error, you can't use special characters, only letters")
+            print("Esta mal, un bofetón")
             continue
         
         if letter in Incorrect_integers:
-            print("Error, you can't use integers, only letters")
+            print("Esta mal, un bofetón")
             continue
 
         return letter
+
+while True:
+    print (Steps[0])
+    getInput()
+    # print() 
 
 # getInput()
 
