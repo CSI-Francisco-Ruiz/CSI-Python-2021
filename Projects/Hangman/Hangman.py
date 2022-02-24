@@ -1,5 +1,6 @@
 import json, ssl
 from random import Random
+import string
 import urllib.request
 from RandomCryptoCoin import RandomCryptoCoin
 
@@ -16,6 +17,15 @@ def getWord():
     present_coin = RandomCryptoCoin(**requestWord)
     
     return present_coin.coin_name
+
+
+myWord = getWord().upper()
+
+print(myWord)
+
+stages = 0
+
+# var
 
 Steps = ["""
         |____________|
@@ -85,14 +95,15 @@ Steps = ["""
 ]
 
 Incorrect_integers = ["0","1","2","3","4","5","6","7","8","9"]
-Incorrect_characters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+","`","~","[","{","]","}","\\","|",";",":",",","<",".",">","/","?"]
+Incorrect_characters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+","`","~","[","{","]","}","\\","|",";",":",",","<",">","/","?"]
 UsedLetters = []
 
 
 def getInput():
+    # stages = 0
     while(True):
         letter = input("Type a letter of your choice, be wary, as a wrong letter will cost you")
-
+    
         if (len(letter) !=1):
             continue
 
@@ -107,33 +118,37 @@ def getInput():
         if letter in UsedLetters:
             print("Ya usaste esta, un bofetón")
             continue
-        if letter not in RandomCryptoCoin:
-            stages = 0
-        print(Steps[stages])
-        stages += 1
-        continue
-    
+
+
+        # print(Steps[stages])
+        # stages += 1
+
         UsedLetters.append(letter)
         return letter
 
 def printword():
     Temp:str = ""
-    for letter in RandomCryptoCoin.coin_name:
-        if letter in RandomCryptoCoin.coin_name:
-            print(letter)
-            letter in UsedLetters
-        if letter not in UsedLetters:
-            Temp +="_"
-        else:
+    for letter in myWord:
+        if letter in UsedLetters:
+            # print(letter)
             Temp += letter
-        return Temp
+        else:
+            Temp += "_"
+    return Temp
         
+# Attempt = getInput
 
 while True:
-    print (Steps[0])
-    getInput()
-    print() 
+    print (Steps[stages])
+    print(printword())
 
+    letter =  getInput().upper()
+    # input is not in word
+    #   increment stage
+    if  letter not in myWord:
+        stages = stages +1
+
+    
 
 #getInput()
 
