@@ -1,10 +1,9 @@
 import json, ssl
+from random import Random
 import urllib.request
 from RandomCryptoCoin import RandomCryptoCoin
 
 ssl._create_default_https_context = ssl._create_unverified_context
-
-Incorrect_Letters = []
 
 def getWord():
 
@@ -14,7 +13,7 @@ def getWord():
 
     requestWord= json.loads(urllib.request.urlopen(request).read())
 
-    present_coin =RandomCryptoCoin(**requestWord)
+    present_coin = RandomCryptoCoin(**requestWord)
     
     return present_coin.coin_name
 
@@ -85,9 +84,10 @@ Steps = ["""
         """
 ]
 
-
 Incorrect_integers = ["0","1","2","3","4","5","6","7","8","9"]
 Incorrect_characters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+","`","~","[","{","]","}","\\","|",";",":",",","<",".",">","/","?"]
+UsedLetters = []
+
 
 def getInput():
     while(True):
@@ -103,14 +103,38 @@ def getInput():
         if letter in Incorrect_integers:
             print("Esta mal, un bofetón")
             continue
-
+        
+        if letter in UsedLetters:
+            print("Ya usaste esta, un bofetón")
+            continue
+        if letter not in RandomCryptoCoin:
+            stages = 0
+        print(Steps[stages])
+        stages += 1
+        continue
+    
+        UsedLetters.append(letter)
         return letter
+
+def printword():
+    Temp:str = ""
+    for letter in RandomCryptoCoin.coin_name:
+        if letter in RandomCryptoCoin.coin_name:
+            print(letter)
+            letter in UsedLetters
+        if letter not in UsedLetters:
+            Temp +="_"
+        else:
+            Temp += letter
+        return Temp
+        
 
 while True:
     print (Steps[0])
     getInput()
-    # print() 
+    print() 
 
-# getInput()
 
-print(getWord())
+#getInput()
+
+#print(getInput())
