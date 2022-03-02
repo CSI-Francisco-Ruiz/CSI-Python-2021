@@ -4,11 +4,13 @@ import string
 import urllib.request
 from RandomCryptoCoin import RandomCryptoCoin
 
+#DISCLAIMER: This code might take some time to load at first, as well as take time to restart.
+
 #This code prevents error, although it is not recommended to use or necessary.
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-#Here I create a function in order to acquire my word from random data in an api. I first start the function by using the word def, declaring the function. I then simply added getWord as a function name and then I added the parameters with the parenthesis. After all was said and done, I closed it with a colon.
+#Here I create a function in order to acquire my word from random data in an api. I first start the function by using def, declaring the function. I then simply added getWord as a function name and then I added the parenthesis, and closed it with a colon. 
 
 def getWord():
 
@@ -32,15 +34,9 @@ def getWord():
     
     return present_coin.coin_name
 
-#Here I create a variable for the whole function of getWord, in which I use myWord to replace it and I also add the .upper() method to it, which converts all lowercase letters in a string into uppercase letters and returns them. 
 
-myWord = getWord().upper()
 
-#Here I create a new variable called stages. Its purpose is to reassure further lines of code that the stages of the steps begin at stage 0, the very first step in the steps list.
-
-stages = 0
-
-#Here I create a yet another variable with the name Steps. Its definition consists of a json list that contains each and every step to my hangman. Not the game, but hangman itself, with my goal being that after every wrong answer, the steps would increase by 1. I achieve this by using json formatting and adding my own implementations of the hangman.
+#Here I create a yet another variable with the name Steps. Its definition consists of a multiline string list that contains each and every step to my hangman. Not the game, but hangman itself, with my goal being that after every wrong answer, the steps would increase by 1.
 
 Steps = ["""
         |____________|
@@ -109,50 +105,179 @@ Steps = ["""
         """
 ]
 
+#Now I create a variable called Incorrect_Integers so that I can store in a list all the possible numbers that could and shouldn't be used in the hangman game. 
+
 Incorrect_integers = ["0","1","2","3","4","5","6","7","8","9"]
+
+#I create a new variable with the same premise as the one before it, this time with symbols and it's called Incorrect_characters. 
+
 Incorrect_characters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+","`","~","[","{","]","}","\\","|",";",":",",","<",">","/","?"]
+
+#I create another variable called UsedLetters and it's purpose is to start as an empty list that will then be filled up later with used letters as the hangman game progresses. 
+
 UsedLetters = []
 
+#I create another function, this time called getInput. I define it the same way as I defined my first function, however this function's purpose is different, as I use while and if else logic. 
 
 def getInput():
 
+    #Here I use while logic, with the assumption of truth.
+
     while(True):
+
+        #I create yet another variable, this time called letter. It equates to an input which contains a string. 
+
         letter = input("Type a letter of your choice, be wary, as a wrong letter will cost you:")
     
+        #Here I use if else logic, and in this particular line I use len, which returns the length of my variable letter. If the length of my letter is 1, it continues. 
+
         if (len(letter) !=1):
             continue
 
+        #Here I simply use if else logic to determine if the letter is actually a symbol by making it check inside of the list I had created earlier. 
+
         if letter in Incorrect_characters:
+
+            #After that, I make it print a string to let the user know that they can't use special characters in a non-offensive manner, then I continue. 
+
             print("No puedes usar special characters, un bofetón")
             continue
         
+        #I do the same but with the list Incorrect_integers instead.
+
         if letter in Incorrect_integers:
+
+            #I let the user know again, that they might not use numbers in a non-offensive manner, by printing a nice string for them. I continue.
+
             print("No puedes usar integers, un bofetón")
             continue
         
-        if stages == 7:
-            print("Perdiste, un bofetón")
-            continue
+        #I apply the same logic yet again for the UsedLetters variable. 
 
         if letter in UsedLetters:
+
+            #I also apply another string that includes a nice message for the user, continuing afterwards. 
+
             print("Ya usaste esta, un bofetón")
             continue
+        
+        #Now I put my empty UsedLetters list to good use by using .append right after it and by appending the letter variable which I had defined earlier. This works because it doesn't rewrite the whole list, but rather modifies it letter after letter. 
 
         UsedLetters.append(letter)
+
+        #I return the letter.
+
         return letter
 
-def printword():
+#I create a new function. I use def, name the function printword, and include the parameter myWord inside the parenthesis followed by a colon. 
+
+def printword(myWord):
+
+    #I create another variable called temp. In it is a string object which consists of an empty string. 
+
     Temp:str = ""
+
+    #I use for logic for every letter(variable) in the variable myWord and I end it with a colon.
+
     for letter in myWord:
+
+        #Using if logic, I determine wether the letter typed is in the list inside the variable UsedLetters.
+
         if letter in UsedLetters:
+
+            #Now I use the variable Temp to add and asign the variable letter.
+            
             Temp += letter
+
+        #I implement else logic.
+
         else:
+
+            #After using else, I used the variable Temp to add and asign an undescore inside of a string. 
+
             Temp += "_"
+
+    #I return the variable Temp.
+
     return Temp
 
+#I create another function with play as its name.
+
+def play():
+
+    #I create a variable called myWord which equated to the getWord function with .upper() assigned next to it, to ensure that all letters in my word or crypto coin are in upper case. .upper() works by returning a copy of the string in uppercase. 
+
+    myWord = getWord().upper()
+
+    #I create a new variable called stages. It's definition is an integer, 0. I plan to add a stage for each of the steps I created inside the steps list. 
+
+    stages = 0
+
+    #I use while logic again, with the assumption of Truth. 
+
+    while True:
+
+        #I print the variable steps as well as stages. 
+
+        print (Steps[stages])
+
+        #I use temp as a variable again, this time equating to my function printword and the variable myWord.
+
+        temp = printword(myWord)
+
+        #I print the variable temp.
+
+        print(temp)
+
+        #Using if logic, the parameters next to if include my temp variable if it equated to the myWord variable. 
+
+        if(temp == myWord):
+
+            #For this hypothetical situation, I print a string with a warm-hearted message for the user if they won. 
+
+            print("Ganaste, no importa, un bofetón")
+
+            #I break out of the if condition. 
+
+            break
+
+        #I define the variable letter again, this time with the function getInput and the suffix .upper(), fulfilling the same purpose as earlier, to return a copy of the string uppercased. 
+
+        letter =  getInput().upper()
+
+        #I create a new if statement; including a situation in which the variable letter is not in the variable myWord.
+
+        if  letter not in myWord:
+
+            #I define stages again, this time by making it equal the earlier definition of stages, an integer(0), and add 1 to it. 
+
+            stages = stages +1
+
+            #In my final if statement, I include a situation where stages == 7.
+
+            if stages == 7:
+
+                #I print a final string with a nice message for the user just in case they weren't able to figure out what the mystery crypto was.
+
+                print("Perdiste, un bofetón")
+
+                #I break the statement.
+
+                break
+
+#I use while logic with the assumption of truth once more. 
+
 while True:
-    print (Steps[stages])
-    print(printword())
-    letter =  getInput().upper()
-    if  letter not in myWord:
-        stages = stages +1
+
+    #I use the function play.
+
+    play()
+
+    #I define UsedLetters by creating a new empty list. 
+
+    UsedLetters = []
+
+
+
+
+
