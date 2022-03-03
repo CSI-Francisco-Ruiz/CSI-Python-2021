@@ -6,15 +6,23 @@ from RandomCryptoCoin import RandomCryptoCoin
 
 #DISCLAIMER: This code might take some time to load at first, as well as take time to restart.
 
+#RULES: A Hangman game will be presented to you, and the goal is to slowly type letters until you are able to figure out which word (crypto) is the true one. If a correct letter is typed, the hangman will remain static. If an incorrect letter is typed, the hangman will slowly be hung limb by limb, so be careful. 
+
+#NOTES: If you win, the restart will work as intended, but for some reason whenever the hangman reaches the final stage in his execution, it doesn't end. So in order for it to end properly in a losing situation, you shall have to type an extra letter for it to proceed as normal. 
+
 #This code prevents error, although it is not recommended to use or necessary.
 
 ssl._create_default_https_context = ssl._create_unverified_context
+
+#I print a string with a message that says "Fetching Crypto Coin", to let the user know that the code is working but that the hangman hasn't appeared yet and that the crypto is being fetched. 
+
+print("Fetching Crypto Coin...")
 
 #Here I create a function in order to acquire my word from random data in an api. I first start the function by using def, declaring the function. I then simply added getWord as a function name and then I added the parenthesis, and closed it with a colon. 
 
 def getWord():
 
-    #Here I create a variable, calling it cryptocoinLink, as its definition is the very link from which I will be calling a respective word from. The link is the random data in an api that I mentioned earlier.
+    #Here I create a variable, calling it cryptocoinLink, as its definition is the very link from which I will be calling a respective crypto coin from. The link is the random data in an api that I mentioned earlier.
 
     cryptocoinLink = "https://random-data-api.com/api/crypto_coin/random_crypto_coin"
 
@@ -212,6 +220,7 @@ def play():
     #I create a new variable called stages. It's definition is an integer, 0. I plan to add a stage for each of the steps I created inside the steps list. 
 
     stages = 0
+    
 
     #I use while logic again, with the assumption of Truth. 
 
@@ -237,7 +246,7 @@ def play():
 
             print("Ganaste, no importa, un bofetón")
 
-            #I break out of the if condition. 
+            #I break out of the loop.
 
             break
 
@@ -276,8 +285,3 @@ while True:
     #I define UsedLetters by creating a new empty list. 
 
     UsedLetters = []
-
-
-
-
-
