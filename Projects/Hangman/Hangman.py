@@ -14,13 +14,13 @@ from RandomCryptoCoin import RandomCryptoCoin
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-#I print a string with a message that says "Fetching Crypto Coin", to let the user know that the code is working but that the hangman hasn't appeared yet and that the crypto is being fetched. 
-
-print("Fetching Crypto Coin...")
-
 #Here I create a function in order to acquire my word from random data in an api. I first start the function by using def, declaring the function. I then simply added getWord as a function name and then I added the parenthesis, and closed it with a colon. 
 
 def getWord():
+
+    #I print a string with a message that says "Fetching Crypto Coin", to let the user know that the code is working but that the hangman hasn't appeared yet and that the crypto is being fetched. It will repeat any time a new game is started, wether it be a game that was won or a lost game.
+
+    print("Fetching Crypto Coin...")
 
     #Here I create a variable, calling it cryptocoinLink, as its definition is the very link from which I will be calling a respective crypto coin from. The link is the random data in an api that I mentioned earlier.
 
@@ -38,13 +38,13 @@ def getWord():
 
     present_coin = RandomCryptoCoin(**requestWord)
 
-    #Then I return the present_coin along with its name. I achieve this by using the present_coin variable and appending it with .coin_name, which is a variable in the random crypto coin api.
+    #Then I return the present_coin along with its name. I achieve this by using the present_coin variable and appending it with .coin_name, which is a variable in the random crypto coin api. I also use .upper() so that it returns my coin in uppercase.
     
-    return present_coin.coin_name
+    return present_coin.coin_name.upper()
 
 
 
-#Here I create a yet another variable with the name Steps. Its definition consists of a multiline string list that contains each and every step to my hangman. Not the game, but hangman itself, with my goal being that after every wrong answer, the steps would increase by 1.
+#Here I create a yet another variable with the name Steps. Its definition consists of a multiline string array that contains each and every step to my hangman. Not the game, but hangman itself, with my goal being that after every wrong answer, the steps would increase by 1.
 
 Steps = ["""
         |____________|
@@ -129,13 +129,13 @@ UsedLetters = []
 
 def getInput():
 
-    #Here I use while logic, with the assumption of truth.
+    #Here I use while logic, creating a loop. 
 
     while(True):
 
-        #I create yet another variable, this time called letter. It equates to an input which contains a string. 
+        #I create yet another variable, this time called letter. It equates to an input which contains a string and .upper() at the end so that it gets capitalized.
 
-        letter = input("Type a letter of your choice, be wary, as a wrong letter will cost you:")
+        letter = input("Type a letter of your choice, be wary, as a wrong letter will cost you:").upper()
     
         #Here I use if else logic, and in this particular line I use len, which returns the length of my variable letter. If the length of my letter is 1, it continues. 
 
@@ -164,11 +164,11 @@ def getInput():
 
         if letter in UsedLetters:
 
-            #I also apply another string that includes a nice message for the user, continuing afterwards. 
+            #I also apply another string that includes a nice message for the user. I continue the loop.
 
             print("Ya usaste esta, un bofetón")
             continue
-        
+
         #Now I put my empty UsedLetters list to good use by using .append right after it and by appending the letter variable which I had defined earlier. This works because it doesn't rewrite the whole list, but rather modifies it letter after letter. 
 
         UsedLetters.append(letter)
@@ -189,7 +189,7 @@ def printword(myWord):
 
     for letter in myWord:
 
-        #Using if logic, I determine wether the letter typed is in the list inside the variable UsedLetters.
+        #Using if logic, I determine whether the letter typed is in the list inside the variable UsedLetters.
 
         if letter in UsedLetters:
 
@@ -209,7 +209,7 @@ def printword(myWord):
 
     return Temp
 
-#I create another function with play as its name.
+#I create another function with play as its name; it's purpose is to be used everytime after a game is ended, in order to restart the game. The rest of the code is at the end. 
 
 def play():
 
@@ -217,12 +217,12 @@ def play():
 
     myWord = getWord().upper()
 
-    #I create a new variable called stages. It's definition is an integer, 0. I plan to add a stage for each of the steps I created inside the steps list. 
+    #I create a new variable called stages. It's definition is an integer, 0. I plan to add a stage for each of the steps I created inside the steps list. Afterwards, it will reset to 0 whenever a new game is started.
 
     stages = 0
     
 
-    #I use while logic again, with the assumption of Truth. 
+    #I create another loop using while logic.
 
     while True:
 
@@ -250,7 +250,7 @@ def play():
 
             break
 
-        #I define the variable letter again, this time with the function getInput and the suffix .upper(), fulfilling the same purpose as earlier, to return a copy of the string uppercased. 
+        #I define the variable letter again, this time with the function getInput and the suffix .upper(), fulfilling the same purpose as earlier, to return a copy uppercased. 
 
         letter =  getInput().upper()
 
@@ -270,18 +270,18 @@ def play():
 
                 print("Perdiste, un bofetón")
 
-                #I break the statement.
+                #I break out of the loop.
 
                 break
 
-#I use while logic with the assumption of truth once more. 
+#I use while logic to create another loop, in order to restart the game. 
 
 while True:
 
-    #I use the function play.
+    #I use the function play that I had defined earlier. This basically makes getWord happen again and resets the stages to 0. 
 
     play()
 
-    #I define UsedLetters by creating a new empty list. 
+    #I define UsedLetters by creating a new empty list for every time a new game is started. 
 
     UsedLetters = []
