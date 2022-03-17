@@ -1,3 +1,4 @@
+from ast import Delete
 import json, ssl
 import os
 from pathlib import Path
@@ -31,4 +32,3 @@ for i in range(100):
 
         with open(myFilePath, 'w') as outfile:
             json.dump(current_internetstuff.__dict__, outfile)
-
