@@ -264,7 +264,7 @@ def play():
 
             #In my final if statement, I include a situation where stages == 7.
 
-            if stages == 7:
+            if stages == 6:
 
                 #I print a final string with a nice message for the user just in case they weren't able to figure out what the mystery crypto was.
 
