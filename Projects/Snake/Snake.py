@@ -36,6 +36,13 @@ snake_speed = 15
 font_style = pygame.font.SysFont("bahnschrift", 25)
 score_font = pygame.font.SysFont("comicsansms", 35)
 
+#A function called Your_score is created with the purpose to update the player's score throughout the game
+def Your_score(score):
+
+    #Value is defined as the score font's rendering as well as the score itself
+    value = score_font.render("Your Score: " + str(score), True, yellow)
+    dis.blit(value, [0, 0])
+
 #A function called our_snake is created which includes the snake_list and the snake's block
 def our_snake(snake_block, snake_list):
 
